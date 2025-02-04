@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Boomer Shooter.sln"
+    "dotnet.defaultSolution": "Boomer-Shooter.sln"
 }
