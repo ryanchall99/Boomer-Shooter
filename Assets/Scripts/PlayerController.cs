@@ -5,15 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement Values")]
+    [Header("Movement Multipliers")]
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float lookSensitivity = 1f;
 
-    CharacterController m_CharacterController;
+    /* --- INPUT ACTIONS --- */
     InputActions_Player m_InputActions;
     InputAction m_MoveAction;
     InputAction m_LookAction;
 
+    /* --- PLAYER MOVEMENT --- */
+    CharacterController m_CharacterController;  
     private float xRotation, yRotation = 0f;
 
     private void OnEnable() 
