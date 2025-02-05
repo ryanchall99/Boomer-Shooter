@@ -10,7 +10,9 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponSO.Range))
         {
-            Debug.Log("HIT!");
+            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+
+            enemyHealth?.TakeDamage(weaponSO.Damage);
         }
     }
 }
