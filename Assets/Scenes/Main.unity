@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 37722836}
   - component: {fileID: 37722837}
   - component: {fileID: 37722838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122765037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FollowCameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,9 @@ GameObject:
   - component: {fileID: 982297074}
   - component: {fileID: 982297073}
   - component: {fileID: 982297072}
-  m_Layer: 0
+  - component: {fileID: 982297078}
+  - component: {fileID: 982297077}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,13 +901,48 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982297071}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 5.04}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!195 &982297077
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982297071}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &982297078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982297071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ad172fccd00c2498da397cb530d800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 37722836}
 --- !u!1 &1345384822
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345384823}
   - component: {fileID: 1345384824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,6 +988,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f5f25031ebda4428d2ba02ca2b7107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2013146529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013146531}
+  - component: {fileID: 2013146530}
+  m_Layer: 0
+  m_Name: NavMeshSurface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2013146530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013146529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 6c70dad9fddbcd44881570164f816c60, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &2013146531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013146529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1480046102982755985
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1168,7 +1269,7 @@ GameObject:
   - component: {fileID: 1501883419282211539}
   - component: {fileID: 1489816821613317493}
   - component: {fileID: 1480701857964484891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Wep_Pistol_Slide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1287,7 @@ GameObject:
   - component: {fileID: 1497974182218800651}
   - component: {fileID: 1490327791104963773}
   - component: {fileID: 1480046102982755985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Wep_Pistol_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1305,7 @@ GameObject:
   - component: {fileID: 1501571406997358923}
   - component: {fileID: 1486670628587139365}
   - component: {fileID: 1480124892417396039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,3 +1323,4 @@ SceneRoots:
   - {fileID: 538897958}
   - {fileID: 37722836}
   - {fileID: 982297076}
+  - {fileID: 2013146531}
