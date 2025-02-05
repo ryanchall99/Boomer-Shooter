@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] WeaponSO activeWeapon;
 
+    [Header("Camera")]
+    [SerializeField] GameObject CinemachineCameraTarget;
+
     /* --- WEAPON --- */
     Weapon m_CurrentWeapon;
 
@@ -23,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     /* --- PLAYER MOVEMENT --- */
     CharacterController m_CharacterController;  
-    private float xRotation, yRotation = 0f;
+    private float xRotation = 0f;
 
     private void OnEnable() 
     {
@@ -63,15 +67,10 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         Vector2 move = m_MoveAction.ReadValue<Vector2>();
+     
+        Vector3 moveDirection = transform.right * move.x + transform.forward * move.y;
 
-        Vector3 moveDirection = new Vector3(move.x, 0, move.y).normalized;
-        
-        if (move != Vector2.zero)
-        {
-            moveDirection = transform.right * move.x + transform.forward * move.y;
-        }
-
-        m_CharacterController.Move(moveDirection * (moveSpeed * Time.deltaTime));
+        m_CharacterController.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void HandleLook()
@@ -81,12 +80,11 @@ public class PlayerController : MonoBehaviour
         float mouseX = look.x * lookSensitivity * Time.deltaTime;
         float mouseY = look.y * lookSensitivity * Time.deltaTime;
 
-        yRotation += mouseX;
-
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
     }
 
     private void HandleShoot()
