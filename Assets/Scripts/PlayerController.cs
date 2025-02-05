@@ -9,10 +9,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float lookSensitivity = 1f;
 
+    [Header("Weapon")]
+    [SerializeField] WeaponSO activeWeapon;
+
+    /* --- WEAPON --- */
+    Weapon m_CurrentWeapon;
+
     /* --- INPUT ACTIONS --- */
     InputActions_Player m_InputActions;
     InputAction m_MoveAction;
     InputAction m_LookAction;
+    InputAction m_FireAction;
 
     /* --- PLAYER MOVEMENT --- */
     CharacterController m_CharacterController;  
@@ -36,9 +43,11 @@ public class PlayerController : MonoBehaviour
     private void Start() 
     {
         m_CharacterController = GetComponent<CharacterController>();
+        m_CurrentWeapon = GetComponentInChildren<Weapon>();
 
         m_MoveAction = m_InputActions.Player.Move;    
         m_LookAction = m_InputActions.Player.Look;
+        m_FireAction = m_InputActions.Player.Fire;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -48,13 +57,14 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
+        HandleShoot();
     }
 
     private void HandleMovement()
     {
         Vector2 move = m_MoveAction.ReadValue<Vector2>();
 
-        Vector3 moveDirection = new Vector3(move.x, 0, move.y);
+        Vector3 moveDirection = new Vector3(move.x, 0, move.y).normalized;
         
         if (move != Vector2.zero)
         {
@@ -77,6 +87,14 @@ public class PlayerController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+    }
+
+    private void HandleShoot()
+    {
+        if (m_FireAction.WasPressedThisFrame())
+        {
+            m_CurrentWeapon.Shoot(activeWeapon);
+        }
     }
 
 }
