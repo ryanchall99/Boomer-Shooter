@@ -7,51 +7,51 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Multipliers")]
-    [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float lookSensitivity = 1f;
+    [SerializeField] float MoveSpeed = 1f;
+    [SerializeField] float LookSensitivity = 1f;
 
     [Header("Weapon")]
-    [SerializeField] WeaponSO activeWeapon;
+    [SerializeField] WeaponSO ActiveWeapon;
 
     [Header("Camera")]
     [SerializeField] GameObject CinemachineCameraTarget;
 
     /* --- WEAPON --- */
-    Weapon m_CurrentWeapon;
+    Weapon _CurrentWeapon;
 
     /* --- INPUT ACTIONS --- */
-    InputActions_Player m_InputActions;
-    InputAction m_MoveAction;
-    InputAction m_LookAction;
-    InputAction m_FireAction;
+    InputActions_Player _InputActions;
+    InputAction _MoveAction;
+    InputAction _LookAction;
+    InputAction _FireAction;
 
     /* --- PLAYER MOVEMENT --- */
-    CharacterController m_CharacterController;  
+    CharacterController _CharacterController;  
     private float xRotation = 0f;
 
     private void OnEnable() 
     {
-        if (m_InputActions == null)
+        if (_InputActions == null)
         {
-            m_InputActions = new InputActions_Player();
+            _InputActions = new InputActions_Player();
         }
 
-        m_InputActions.Player.Enable();
+        _InputActions.Player.Enable();
     }
 
     private void OnDisable() 
     {
-        m_InputActions.Player.Disable();    
+        _InputActions.Player.Disable();    
     }
 
     private void Start() 
     {
-        m_CharacterController = GetComponent<CharacterController>();
-        m_CurrentWeapon = GetComponentInChildren<Weapon>();
+        _CharacterController = GetComponent<CharacterController>();
+        _CurrentWeapon = GetComponentInChildren<Weapon>();
 
-        m_MoveAction = m_InputActions.Player.Move;    
-        m_LookAction = m_InputActions.Player.Look;
-        m_FireAction = m_InputActions.Player.Fire;
+        _MoveAction = _InputActions.Player.Move;    
+        _LookAction = _InputActions.Player.Look;
+        _FireAction = _InputActions.Player.Fire;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -66,19 +66,19 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 move = m_MoveAction.ReadValue<Vector2>();
+        Vector2 move = _MoveAction.ReadValue<Vector2>();
      
         Vector3 moveDirection = transform.right * move.x + transform.forward * move.y;
 
-        m_CharacterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        _CharacterController.Move(moveDirection * MoveSpeed * Time.deltaTime);
     }
 
     private void HandleLook()
     {
-        Vector2 look = m_LookAction.ReadValue<Vector2>();
+        Vector2 look = _LookAction.ReadValue<Vector2>();
 
-        float mouseX = look.x * lookSensitivity * Time.deltaTime;
-        float mouseY = look.y * lookSensitivity * Time.deltaTime;
+        float mouseX = look.x * LookSensitivity * Time.deltaTime;
+        float mouseY = look.y * LookSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
@@ -89,9 +89,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleShoot()
     {
-        if (m_FireAction.WasPressedThisFrame())
+        if (_FireAction.WasPressedThisFrame())
         {
-            m_CurrentWeapon.Shoot(activeWeapon);
+            _CurrentWeapon.Shoot(ActiveWeapon);
         }
     }
 

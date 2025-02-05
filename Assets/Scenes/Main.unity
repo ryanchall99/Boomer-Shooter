@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdb4e0f9d4e62348927d1059b90c320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  lookSensitivity: 5
-  activeWeapon: {fileID: 11400000, guid: 85c5e8eca57ce0440ba5d23134f2cede, type: 2}
+  MoveSpeed: 5
+  LookSensitivity: 5
+  ActiveWeapon: {fileID: 11400000, guid: 85c5e8eca57ce0440ba5d23134f2cede, type: 2}
   CinemachineCameraTarget: {fileID: 122765036}
 --- !u!143 &37722838
 CharacterController:
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b97a22fc7aa8c3438cf2607cc825559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  MaxHealth: 3
 --- !u!65 &982297073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ad172fccd00c2498da397cb530d800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 37722836}
+  Player: {fileID: 37722836}
 --- !u!1 &1345384822
 GameObject:
   m_ObjectHideFlags: 0

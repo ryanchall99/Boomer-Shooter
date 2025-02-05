@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth;
+    [SerializeField] int MaxHealth;
 
-    int m_CurrentHealth;
+    int _CurrentHealth;
 
     private void Start() 
     {
-        m_CurrentHealth = maxHealth;    
+        _CurrentHealth = MaxHealth;    
     }
 
     public void TakeDamage(int damage)
     {
         // Reduce Health By Damage Taken
-        m_CurrentHealth -= damage;
+        _CurrentHealth -= damage;
 
-        if (m_CurrentHealth <= 0)
+        if (_CurrentHealth <= 0)
         {
             Destroy(this.gameObject);
         }
