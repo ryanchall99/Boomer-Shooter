@@ -5,15 +5,15 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform Player;
 
-    NavMeshAgent _NavMeshAgent;
+    NavMeshAgent _navMeshAgent;
 
     private void Awake() 
     {
-        _NavMeshAgent = GetComponent<NavMeshAgent>();    
+        _navMeshAgent = GetComponent<NavMeshAgent>();    
     }
 
     private void Update() 
     {
-        _NavMeshAgent.SetDestination(Player.position);    
+        _navMeshAgent.SetDestination(Player.position);    
     }
 }

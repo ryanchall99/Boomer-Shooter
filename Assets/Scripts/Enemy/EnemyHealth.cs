@@ -4,19 +4,19 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int MaxHealth;
 
-    int _CurrentHealth;
+    int _currentHealth;
 
     private void Start() 
     {
-        _CurrentHealth = MaxHealth;    
+        _currentHealth = MaxHealth;    
     }
 
     public void TakeDamage(int damage)
     {
         // Reduce Health By Damage Taken
-        _CurrentHealth -= damage;
+        _currentHealth -= damage;
 
-        if (_CurrentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Destroy(this.gameObject);
         }
