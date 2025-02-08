@@ -10,9 +10,10 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponSO.Range))
         {
-            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-
-            enemyHealth?.TakeDamage(weaponSO.Damage);
+            if (hit.collider.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
+            {
+                enemyHealth.TakeDamage(weaponSO.Damage);
+            }
         }
     }
 }
