@@ -1357,14 +1357,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1203626045831233840}
     m_Modifications:
-    - target: {fileID: 696802320213950151, guid: fe0709f36a0d97e4386c539fbe0fb83c, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 696802320213950151, guid: fe0709f36a0d97e4386c539fbe0fb83c, type: 3}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7945055331433015514, guid: fe0709f36a0d97e4386c539fbe0fb83c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1442,6 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MuzzleFlash: {fileID: 707821327}
+  HitVFX: {fileID: 0}
 --- !u!4 &6253829274437167098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4555597984511329777, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}

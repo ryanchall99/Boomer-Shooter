@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] ParticleSystem MuzzleFlash;
+    [SerializeField] ParticleSystem HitVFX;
 
     private Animator _animator;
 
