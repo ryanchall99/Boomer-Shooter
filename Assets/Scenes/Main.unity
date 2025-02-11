@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MuzzleFlash: {fileID: 707821327}
-  HitVFX: {fileID: 0}
+  HitVFXPrefab: {fileID: 6016986341613549821, guid: d31e45c7b41f8ba4cb27a907fd0097bb, type: 3}
 --- !u!4 &6253829274437167098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4555597984511329777, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
