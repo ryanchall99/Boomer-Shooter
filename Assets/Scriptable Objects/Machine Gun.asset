@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5b0c556b00506478ecc94cea5f3a35, type: 3}
-  m_Name: Gun
+  m_Name: Machine Gun
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 0
   MagSize: 0
-  Range: 10
+  Range: 0
