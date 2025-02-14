@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b0c556b00506478ecc94cea5f3a35, type: 3}
   m_Name: Sniper Rifle
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
   MagSize: 0
   Range: 10
   FireRate: 0
