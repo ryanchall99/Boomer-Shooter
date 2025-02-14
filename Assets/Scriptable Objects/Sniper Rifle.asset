@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 1
   MagSize: 0
-  Range: 0
+  Range: 10
   FireRate: 0
   HitVFXPrefab: {fileID: 6016986341613549821, guid: d31e45c7b41f8ba4cb27a907fd0097bb, type: 3}
