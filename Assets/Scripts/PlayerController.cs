@@ -10,14 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float MoveSpeed = 1f;
     [SerializeField] float LookSensitivity = 1f;
 
-    [Header("Weapon")]
-    [SerializeField] WeaponSO ActiveWeapon;
-
     [Header("Camera")]
     [SerializeField] GameObject CinemachineCameraTarget;
 
     /* --- WEAPON --- */
-    Weapon _currentWeapon;
+    ActiveWeapon _activeWeapon;
 
     /* --- INPUT ACTIONS --- */
     InputActions_Player _inputActions;
@@ -47,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private void Start() 
     {
         _characterController = GetComponent<CharacterController>();
-        _currentWeapon = GetComponentInChildren<Weapon>();
+        _activeWeapon = GetComponentInChildren<ActiveWeapon>();
 
         _moveAction = _inputActions.Player.Move;    
         _lookAction = _inputActions.Player.Look;
@@ -91,7 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_fireAction.WasPressedThisFrame())
         {
-            _currentWeapon.Shoot(ActiveWeapon);
+            _activeWeapon.HandleShoot();
         }
     }
 
