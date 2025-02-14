@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleShoot()
     {
-        if (_fireAction.WasPressedThisFrame())
+        if (_fireAction.IsPressed() && _activeWeapon.IsAutomatic() || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
         {
             _activeWeapon.HandleShoot();
         }

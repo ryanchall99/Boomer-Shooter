@@ -30,4 +30,9 @@ public class ActiveWeapon : MonoBehaviour
             _timeSinceLastShot = 0f; // Reset back to 0
         }
     }
+
+    public bool IsAutomatic()
+    {
+        return weaponSO.IsAutomatic;
+    }
 }

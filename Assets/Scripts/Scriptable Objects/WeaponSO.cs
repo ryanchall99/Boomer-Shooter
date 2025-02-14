@@ -4,9 +4,10 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public int Damage;
-    public int MagSize;
     public int Range;
     public float FireRate;
 
     public GameObject HitVFXPrefab;
+
+    public bool IsAutomatic = false;
 }
