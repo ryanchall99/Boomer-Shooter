@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 709929040899847841, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 62c8e9a825678b749b5ab0b2859eb662, type: 2}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129415907675404493, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_Name
-      value: Machine Gun Pickup Variant
+      value: Machine Gun Pickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

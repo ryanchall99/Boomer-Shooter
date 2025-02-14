@@ -31,9 +31,9 @@ public class ActiveWeapon : MonoBehaviour
         }
     }
 
-    public void SwitchWeapons()
+    public void SwitchWeapons(WeaponSO weaponSO)
     {
-        Debug.Log(weaponSO.name);
+        Debug.Log("Player picked up " + weaponSO.name);
     }
 
     public bool IsAutomatic()
