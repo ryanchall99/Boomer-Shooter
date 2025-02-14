@@ -5,7 +5,7 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] WeaponSO weaponSO;
 
     private Animator _animator;
-    Weapon _currentWeapon;
+    private Weapon _currentWeapon;
 
     float _timeSinceLastShot = 0f;
 
@@ -29,6 +29,11 @@ public class ActiveWeapon : MonoBehaviour
             
             _timeSinceLastShot = 0f; // Reset back to 0
         }
+    }
+
+    public void SwitchWeapons()
+    {
+        Debug.Log(weaponSO.name);
     }
 
     public bool IsAutomatic()
