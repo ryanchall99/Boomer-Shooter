@@ -22,6 +22,13 @@ public class ActiveWeapon : MonoBehaviour
 
     public void ShootWeapon()
     {
+        // If No Weapon Assigned
+        if (!_currentWeapon)
+        {
+            Debug.LogError("No Weapon Assigned!");
+            return;
+        }
+
         if (_timeSinceLastShot >= weaponSO.FireRate)
         {
             _currentWeapon.Shoot(weaponSO);
