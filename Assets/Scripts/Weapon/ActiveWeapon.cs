@@ -46,8 +46,15 @@ public class ActiveWeapon : MonoBehaviour
             Destroy(_currentWeapon.gameObject);
         }
 
-        Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>(); // Instantiate new weapon prefab linked to weaponSO
-        _currentWeapon = newWeapon; // Update current weapon
+        if (weaponSO.WeaponPrefab)
+        {
+            Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>(); // Instantiate new weapon prefab linked to weaponSO
+            _currentWeapon = newWeapon; // Update current weapon
+        }
+        else
+        {
+            Debug.LogError("No Weapon Prefab Assigned!");
+        }
 
         this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
     }
