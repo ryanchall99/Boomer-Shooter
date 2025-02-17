@@ -47,21 +47,20 @@ public class ActiveWeapon : MonoBehaviour
 
     public void SwitchWeapons(WeaponSO weaponSO)
     {
+        if (!weaponSO.WeaponPrefab)
+        {
+            Debug.LogError("No Weapon Prefab Assigned!");
+            return;
+        }
+
         if (_currentWeapon)
         {
             // Destroy current active weapon before switching
             Destroy(_currentWeapon.gameObject);
         }
 
-        if (weaponSO.WeaponPrefab)
-        {
-            Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>(); // Instantiate new weapon prefab linked to weaponSO
-            _currentWeapon = newWeapon; // Update current weapon
-        }
-        else
-        {
-            Debug.LogError("No Weapon Prefab Assigned!");
-        }
+        Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>(); // Instantiate new weapon prefab linked to weaponSO
+        _currentWeapon = newWeapon; // Update current weapon
 
         this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
     }
