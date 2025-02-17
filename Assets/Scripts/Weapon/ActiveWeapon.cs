@@ -20,7 +20,7 @@ public class ActiveWeapon : MonoBehaviour
         _timeSinceLastShot += Time.deltaTime; // Adding time every frame.
     }
 
-    public void HandleShoot()
+    public void ShootWeapon()
     {
         if (_timeSinceLastShot >= weaponSO.FireRate)
         {
@@ -29,6 +29,13 @@ public class ActiveWeapon : MonoBehaviour
             
             _timeSinceLastShot = 0f; // Reset back to 0
         }
+    }
+
+    public void ZoomWeapon()
+    {
+        if (!weaponSO.CanZoom) return; // Exit early due to weapon not being zoomable.
+
+        Debug.Log("Zooming In");
     }
 
     public void SwitchWeapons(WeaponSO weaponSO)

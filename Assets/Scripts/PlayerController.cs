@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     InputAction _moveAction;
     InputAction _lookAction;
     InputAction _fireAction;
+    InputAction _zoomAction;
 
     /* --- PLAYER MOVEMENT --- */
     CharacterController _characterController;  
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
         _moveAction = _inputActions.Player.Move;    
         _lookAction = _inputActions.Player.Look;
         _fireAction = _inputActions.Player.Fire;
+        _zoomAction = _inputActions.Player.Zoom;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleLook();
         HandleShoot();
+        HandleZoom();
     }
 
     private void HandleMovement()
@@ -88,8 +91,15 @@ public class PlayerController : MonoBehaviour
     {
         if (_fireAction.IsPressed() && _activeWeapon.IsAutomatic() || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
         {
-            _activeWeapon.HandleShoot();
+            _activeWeapon.ShootWeapon();
         }
     }
 
+    private void HandleZoom()
+    {
+        if (_zoomAction.IsPressed())
+        {
+            _activeWeapon.ZoomWeapon();
+        }
+    }
 }
