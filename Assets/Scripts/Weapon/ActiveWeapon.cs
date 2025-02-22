@@ -1,14 +1,19 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ActiveWeapon : MonoBehaviour
 {
     [SerializeField] WeaponSO weaponSO;
     [SerializeField] CinemachineCamera PlayerFollowCamera;
 
+    private PlayerController _playerController;
     private Animator _animator;
     private Weapon _currentWeapon;
     private float _defaultZoom;
+
+    InputAction _zoomAction;
+    InputAction _fireAction;
 
     float _timeSinceLastShot = 0f;
 
@@ -16,6 +21,10 @@ public class ActiveWeapon : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentWeapon = GetComponentInChildren<Weapon>();
+        _playerController = GetComponentInParent<PlayerController>();
+
+        _zoomAction = _playerController.GetInput().Player.Zoom;
+        _fireAction = _playerController.GetInput().Player.Fire;
 
         _defaultZoom = PlayerFollowCamera.Lens.FieldOfView;
     }
@@ -23,9 +32,12 @@ public class ActiveWeapon : MonoBehaviour
     void Update()
     {
         _timeSinceLastShot += Time.deltaTime; // Adding time every frame.
+
+        HandleZoomWeapon();
+        HandleShootWeapon();
     }
 
-    public void ShootWeapon()
+    public void HandleShootWeapon()
     {
         // If No Weapon Assigned
         if (!_currentWeapon)
@@ -34,27 +46,30 @@ public class ActiveWeapon : MonoBehaviour
             return;
         }
 
-        if (_timeSinceLastShot >= weaponSO.FireRate)
+        if (_fireAction.IsPressed() && weaponSO.IsAutomatic || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
         {
-            _currentWeapon.Shoot(weaponSO);
-            _animator.Play(AnimationNames.Shoot, 0, 0f); // Animation / Layer / Start Frame
+            if (_timeSinceLastShot >= weaponSO.FireRate)
+            {
+                _currentWeapon.Shoot(weaponSO);
+                _animator.Play(AnimationNames.Shoot, 0, 0f); // Animation / Layer / Start Frame
             
-            _timeSinceLastShot = 0f; // Reset back to 0
+                _timeSinceLastShot = 0f; // Reset back to 0
+            }
         }
     }
 
-    public void ZoomInWeapon()
+    public void HandleZoomWeapon()
     {
         if (!weaponSO.CanZoom) return; // Exit early due to weapon not being zoomable.
 
-        PlayerFollowCamera.Lens.FieldOfView = weaponSO.ZoomAmount;
-    }
-
-    public void ZoomOutWeapon()
-    {
-        if (!weaponSO.CanZoom) return;
-
-        PlayerFollowCamera.Lens.FieldOfView = _defaultZoom;
+        if (_zoomAction.IsPressed())
+        {
+            PlayerFollowCamera.Lens.FieldOfView = weaponSO.ZoomAmount;
+        }
+        else
+        {
+            PlayerFollowCamera.Lens.FieldOfView = _defaultZoom;
+        }
     }
 
     public void SwitchWeapons(WeaponSO weaponSO)
