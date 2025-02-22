@@ -1,11 +1,14 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class ActiveWeapon : MonoBehaviour
 {
     [SerializeField] WeaponSO weaponSO;
+    [SerializeField] CinemachineCamera PlayerFollowCamera;
 
     private Animator _animator;
     private Weapon _currentWeapon;
+    private float _defaultZoom;
 
     float _timeSinceLastShot = 0f;
 
@@ -13,6 +16,8 @@ public class ActiveWeapon : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentWeapon = GetComponentInChildren<Weapon>();
+
+        _defaultZoom = PlayerFollowCamera.Lens.FieldOfView;
     }
 
     void Update()
@@ -38,11 +43,18 @@ public class ActiveWeapon : MonoBehaviour
         }
     }
 
-    public void ZoomWeapon()
+    public void ZoomInWeapon()
     {
         if (!weaponSO.CanZoom) return; // Exit early due to weapon not being zoomable.
 
-        Debug.Log("Zooming In");
+        PlayerFollowCamera.Lens.FieldOfView = weaponSO.ZoomAmount;
+    }
+
+    public void ZoomOutWeapon()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        PlayerFollowCamera.Lens.FieldOfView = _defaultZoom;
     }
 
     public void SwitchWeapons(WeaponSO weaponSO)

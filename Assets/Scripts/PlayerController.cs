@@ -99,7 +99,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_zoomAction.IsPressed())
         {
-            _activeWeapon.ZoomWeapon();
+            _activeWeapon.ZoomInWeapon();
+        }
+        else
+        {
+            _activeWeapon.ZoomOutWeapon();
         }
     }
 }
