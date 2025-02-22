@@ -91,9 +91,4 @@ public class ActiveWeapon : MonoBehaviour
 
         this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
     }
-
-    public bool IsAutomatic()
-    {
-        return weaponSO.IsAutomatic;
-    }
 }
