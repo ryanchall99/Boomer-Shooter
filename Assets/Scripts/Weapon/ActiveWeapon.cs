@@ -67,11 +67,11 @@ public class ActiveWeapon : MonoBehaviour
 
         if (_zoomAction.IsPressed())
         {
-            Zoom(weaponSO.ZoomAmount, true, weaponSO.ZoomLookSensitivity);
+            ToggleZoom(weaponSO.ZoomAmount, true, weaponSO.ZoomLookSensitivity);
         }
         else
         {
-            Zoom(_defaultZoom, false, _defaultLookSensitivity);
+            ToggleZoom(_defaultZoom, false, _defaultLookSensitivity);
         }
     }
 
@@ -95,7 +95,7 @@ public class ActiveWeapon : MonoBehaviour
         this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
     }
 
-    private void Zoom(float FOV, bool IsVignetteActive, float LookSensitivity)
+    private void ToggleZoom(float FOV, bool IsVignetteActive, float LookSensitivity)
     {
         PlayerFollowCamera.Lens.FieldOfView = FOV;
         ZoomVignette.SetActive(IsVignetteActive);
