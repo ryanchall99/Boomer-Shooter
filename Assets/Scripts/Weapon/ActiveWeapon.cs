@@ -6,11 +6,13 @@ public class ActiveWeapon : MonoBehaviour
 {
     [SerializeField] WeaponSO weaponSO;
     [SerializeField] CinemachineCamera PlayerFollowCamera;
+    [SerializeField] GameObject ZoomVignette;
 
     private PlayerController _playerController;
     private Animator _animator;
     private Weapon _currentWeapon;
     private float _defaultZoom;
+    private float _defaultLookSensitivity;
 
     InputAction _zoomAction;
     InputAction _fireAction;
@@ -27,6 +29,7 @@ public class ActiveWeapon : MonoBehaviour
         _fireAction = _playerController.GetInput().Player.Fire;
 
         _defaultZoom = PlayerFollowCamera.Lens.FieldOfView;
+        _defaultLookSensitivity = _playerController.GetLookSensitivity();
     }
 
     void Update()
@@ -64,11 +67,11 @@ public class ActiveWeapon : MonoBehaviour
 
         if (_zoomAction.IsPressed())
         {
-            PlayerFollowCamera.Lens.FieldOfView = weaponSO.ZoomAmount;
+            Zoom(weaponSO.ZoomAmount, true, weaponSO.ZoomLookSensitivity);
         }
         else
         {
-            PlayerFollowCamera.Lens.FieldOfView = _defaultZoom;
+            Zoom(_defaultZoom, false, _defaultLookSensitivity);
         }
     }
 
@@ -90,5 +93,12 @@ public class ActiveWeapon : MonoBehaviour
         _currentWeapon = newWeapon; // Update current weapon
 
         this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
+    }
+
+    private void Zoom(float FOV, bool IsVignetteActive, float LookSensitivity)
+    {
+        PlayerFollowCamera.Lens.FieldOfView = FOV;
+        ZoomVignette.SetActive(IsVignetteActive);
+        _playerController.ChangeLookSensitivity(LookSensitivity);
     }
 }

@@ -58,6 +58,21 @@ public class PlayerController : MonoBehaviour
         HandleLook();
     }
 
+    public InputActions_Player GetInput()
+    {
+        return _inputActions;
+    }
+
+    public float GetLookSensitivity()
+    {
+        return LookSensitivity;
+    }
+
+    public void ChangeLookSensitivity(float amount)
+    {
+        LookSensitivity = amount;
+    }
+
     private void HandleMovement()
     {
         Vector2 move = _moveAction.ReadValue<Vector2>();
@@ -79,10 +94,5 @@ public class PlayerController : MonoBehaviour
 
         CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
-    }
-
-    public InputActions_Player GetInput()
-    {
-        return _inputActions;
     }
 }

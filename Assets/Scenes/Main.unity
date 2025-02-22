@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSO: {fileID: 11400000, guid: 612cd4abfb52a4c40baf646f299f78fb, type: 2}
   PlayerFollowCamera: {fileID: 1787557751}
+  ZoomVignette: {fileID: 371035934}
 --- !u!1001 &19855239
 PrefabInstance:
   m_ObjectHideFlags: 0
