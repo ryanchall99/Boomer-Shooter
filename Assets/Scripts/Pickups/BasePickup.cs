@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class BasePickup : MonoBehaviour
+public abstract class BasePickup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float rotationSpeed = 100f;
 
-    // Update is called once per frame
+    const string PLAYER_STRING = "Player";
+
     void Update()
     {
-        
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f); // Every Pickup rotates
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(PLAYER_STRING))
+        {
+            ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
+
+            OnPickup(activeWeapon);
+            Destroy(this.gameObject);
+        }
+    }
+
+    protected abstract void OnPickup(ActiveWeapon activeWeapon);
 }
