@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Sniper Rifle
   m_EditorClassIdentifier: 
   WeaponPrefab: {fileID: 8405304769642709897, guid: 8da5ad08f570e064b8c585fa68fc9b05, type: 3}
-  Damage: 5
-  Range: 10
-  FireRate: 0
   HitVFXPrefab: {fileID: 6016986341613549821, guid: d31e45c7b41f8ba4cb27a907fd0097bb, type: 3}
+  Damage: 5
+  ClipSize: 6
+  Range: 10
+  FireRate: 1
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 10

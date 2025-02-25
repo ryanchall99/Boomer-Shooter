@@ -4,11 +4,12 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public GameObject WeaponPrefab;
+    public GameObject HitVFXPrefab;
+    
     public int Damage;
+    public int ClipSize;
     public int Range;
     public float FireRate;
-
-    public GameObject HitVFXPrefab;
 
     public bool IsAutomatic = false;
     public bool CanZoom = false;
