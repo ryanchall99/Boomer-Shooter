@@ -119,93 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &614088 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9009533226463271581, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-  m_PrefabInstance: {fileID: 1075841623301439375}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &614089 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4084586957238653961, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-  m_PrefabInstance: {fileID: 1075841623301439375}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &614091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd52885d2399cf4a85ee6a1af2cd308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSO: {fileID: 11400000, guid: 612cd4abfb52a4c40baf646f299f78fb, type: 2}
-  PlayerFollowCamera: {fileID: 1787557751}
-  ZoomVignette: {fileID: 371035934}
---- !u!1001 &19855239
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 614089}
-    m_Modifications:
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405304769642709897, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
---- !u!4 &19855240 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-  m_PrefabInstance: {fileID: 19855239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +789,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1900613692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6066700445757863045, guid: 349401edb80b5844ca1f975d4b930ccb, type: 3}
+  m_PrefabInstance: {fileID: 3042721358666659330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1959729938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,25 +1020,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3755480695690689216, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: AmmoText
+      value: 
+      objectReference: {fileID: 1900613692}
+    - target: {fileID: 3755480695690689216, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: ZoomVignette
+      value: 
+      objectReference: {fileID: 371035934}
+    - target: {fileID: 3755480695690689216, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: StartingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 612cd4abfb52a4c40baf646f299f78fb, type: 2}
+    - target: {fileID: 3755480695690689216, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: PlayerFollowCamera
+      value: 
+      objectReference: {fileID: 1787557751}
     - target: {fileID: 8868256179693540698, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8868256179693540698, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7271919987142612392, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4084586957238653961, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 19855240}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9009533226463271581, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 614091}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
 --- !u!1001 &2008733888170335286
 PrefabInstance:

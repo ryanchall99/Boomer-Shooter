@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4427864578973818795}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 5
   LookSensitivity: 5
-  ActiveWeapon: {fileID: 11400000, guid: 612cd4abfb52a4c40baf646f299f78fb, type: 2}
   CinemachineCameraTarget: {fileID: 438791382779994577}
 --- !u!143 &4427864578973818795
 CharacterController:
@@ -117,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4084586957238653961}
   - component: {fileID: 7999986212917931676}
+  - component: {fileID: 3755480695690689216}
   m_Layer: 6
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -136,8 +136,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1519397026890356441}
+  m_Children: []
   m_Father: {fileID: 4555597984511329777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7999986212917931676
@@ -162,65 +161,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &1175061909280495137
-PrefabInstance:
+--- !u!114 &3755480695690689216
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4084586957238653961}
-    m_Modifications:
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8405304769642709897, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-      propertyPath: m_Name
-      value: Pistol
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
---- !u!4 &1519397026890356441 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 385993586070782200, guid: 30fb48b0da569ce428f45e14d2c484d0, type: 3}
-  m_PrefabInstance: {fileID: 1175061909280495137}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009533226463271581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd52885d2399cf4a85ee6a1af2cd308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingWeapon: {fileID: 0}
+  PlayerFollowCamera: {fileID: 0}
+  ZoomVignette: {fileID: 0}

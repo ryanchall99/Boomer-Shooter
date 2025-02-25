@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,7 +7,10 @@ public class ActiveWeapon : MonoBehaviour
 {
     [SerializeField] WeaponSO StartingWeapon;
     [SerializeField] CinemachineCamera PlayerFollowCamera;
+    
+    [Header("Overlay")]
     [SerializeField] GameObject ZoomVignette;
+    [SerializeField] TMP_Text AmmoText;
 
     private PlayerController _playerController;
     private Animator _animator;
@@ -36,6 +40,7 @@ public class ActiveWeapon : MonoBehaviour
         _fireAction = _playerController.GetInput().Player.Fire;
 
         SwitchWeapons(StartingWeapon); // Equips Starting Weapon
+        AdjustAmmo(_currentWeaponSO.ClipSize);
     }
 
     void Update()
@@ -44,6 +49,13 @@ public class ActiveWeapon : MonoBehaviour
 
         HandleZoomWeapon();
         HandleShootWeapon();
+    }
+
+    public void AdjustAmmo(int amount)
+    {
+        _currentAmmo += amount;
+
+        AmmoText.text = _currentAmmo.ToString("D2");
     }
 
     public void HandleShootWeapon()
