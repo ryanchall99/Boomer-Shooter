@@ -4,13 +4,14 @@ using UnityEngine.InputSystem;
 
 public class ActiveWeapon : MonoBehaviour
 {
-    [SerializeField] WeaponSO weaponSO;
+    [SerializeField] WeaponSO StartingWeapon;
     [SerializeField] CinemachineCamera PlayerFollowCamera;
     [SerializeField] GameObject ZoomVignette;
 
     private PlayerController _playerController;
     private Animator _animator;
     private Weapon _currentWeapon;
+    private WeaponSO _currentWeaponSO;
     private float _defaultZoom;
     private float _defaultLookSensitivity;
 
@@ -18,18 +19,23 @@ public class ActiveWeapon : MonoBehaviour
     InputAction _fireAction;
 
     float _timeSinceLastShot = 0f;
+    int _currentAmmo;
 
-    void Start()
+    void Awake()
     {
         _animator = GetComponent<Animator>();
-        _currentWeapon = GetComponentInChildren<Weapon>();
         _playerController = GetComponentInParent<PlayerController>();
-
-        _zoomAction = _playerController.GetInput().Player.Zoom;
-        _fireAction = _playerController.GetInput().Player.Fire;
 
         _defaultZoom = PlayerFollowCamera.Lens.FieldOfView;
         _defaultLookSensitivity = _playerController.GetLookSensitivity();
+    }
+
+    void Start()
+    {
+        _zoomAction = _playerController.GetInput().Player.Zoom;
+        _fireAction = _playerController.GetInput().Player.Fire;
+
+        SwitchWeapons(StartingWeapon); // Equips Starting Weapon
     }
 
     void Update()
@@ -49,11 +55,11 @@ public class ActiveWeapon : MonoBehaviour
             return;
         }
 
-        if (_fireAction.IsPressed() && weaponSO.IsAutomatic || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
+        if (_fireAction.IsPressed() && _currentWeaponSO.IsAutomatic || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
         {
-            if (_timeSinceLastShot >= weaponSO.FireRate)
+            if (_timeSinceLastShot >= _currentWeaponSO.FireRate)
             {
-                _currentWeapon.Shoot(weaponSO);
+                _currentWeapon.Shoot(_currentWeaponSO);
                 _animator.Play(AnimationNames.Shoot, 0, 0f); // Animation / Layer / Start Frame
             
                 _timeSinceLastShot = 0f; // Reset back to 0
@@ -63,11 +69,11 @@ public class ActiveWeapon : MonoBehaviour
 
     public void HandleZoomWeapon()
     {
-        if (!weaponSO.CanZoom) return; // Exit early due to weapon not being zoomable.
+        if (!_currentWeaponSO.CanZoom) return; // Exit early due to weapon not being zoomable.
 
         if (_zoomAction.IsPressed())
         {
-            Zoom(weaponSO.ZoomAmount, true, weaponSO.ZoomLookSensitivity);
+            Zoom(_currentWeaponSO.ZoomAmount, true, _currentWeaponSO.ZoomLookSensitivity);
         }
         else
         {
@@ -92,7 +98,7 @@ public class ActiveWeapon : MonoBehaviour
         Weapon newWeapon = Instantiate(weaponSO.WeaponPrefab, transform).GetComponent<Weapon>(); // Instantiate new weapon prefab linked to weaponSO
         _currentWeapon = newWeapon; // Update current weapon
 
-        this.weaponSO = weaponSO; // Update weaponSO to new weapons SO
+        this._currentWeaponSO = weaponSO; // Update weaponSO to new weapons SO
     }
 
     private void Zoom(float FOV, bool ActiveVignette, float LookSensitivity)
