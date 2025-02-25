@@ -40,7 +40,6 @@ public class ActiveWeapon : MonoBehaviour
         _fireAction = _playerController.GetInput().Player.Fire;
 
         SwitchWeapons(StartingWeapon); // Equips Starting Weapon
-        AdjustAmmo(_currentWeaponSO.ClipSize);
     }
 
     void Update()
@@ -55,6 +54,13 @@ public class ActiveWeapon : MonoBehaviour
     {
         _currentAmmo += amount;
 
+        // AMMO NOT ALLOWED TO GO OVER CLIP SIZE
+        if (_currentAmmo > _currentWeaponSO.ClipSize)
+        {
+            _currentAmmo = _currentWeaponSO.ClipSize;
+        }
+
+        // Updating Ammo Text
         AmmoText.text = _currentAmmo.ToString("D2");
     }
 
@@ -69,10 +75,11 @@ public class ActiveWeapon : MonoBehaviour
 
         if (_fireAction.IsPressed() && _currentWeaponSO.IsAutomatic || _fireAction.WasPressedThisFrame()) // Automatic || Semi Automatic
         {
-            if (_timeSinceLastShot >= _currentWeaponSO.FireRate)
+            if (_timeSinceLastShot >= _currentWeaponSO.FireRate && _currentAmmo > 0)
             {
                 _currentWeapon.Shoot(_currentWeaponSO);
                 _animator.Play(AnimationNames.Shoot, 0, 0f); // Animation / Layer / Start Frame
+                AdjustAmmo(-1); // Reduce by 1 each shot
             
                 _timeSinceLastShot = 0f; // Reset back to 0
             }
@@ -111,6 +118,8 @@ public class ActiveWeapon : MonoBehaviour
         _currentWeapon = newWeapon; // Update current weapon
 
         this._currentWeaponSO = weaponSO; // Update weaponSO to new weapons SO
+
+        AdjustAmmo(_currentWeaponSO.ClipSize);
     }
 
     private void Zoom(float FOV, bool ActiveVignette, float LookSensitivity)
