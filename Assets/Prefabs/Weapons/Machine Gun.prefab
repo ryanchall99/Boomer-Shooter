@@ -79,6 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MuzzleFlash: {fileID: 8879793808516333710}
+  InteractionLayers:
+    serializedVersion: 2
+    m_Bits: 243
 --- !u!1001 &6853924039039293701
 PrefabInstance:
   m_ObjectHideFlags: 0

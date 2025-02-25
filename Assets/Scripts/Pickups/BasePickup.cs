@@ -6,9 +6,9 @@ public abstract class BasePickup : MonoBehaviour
 
     const string PLAYER_STRING = "Player";
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f); // Every Pickup rotates
+        transform.Rotate(0f, rotationSpeed * Time.fixedDeltaTime, 0f); // Every Pickup rotates
     }
 
     void OnTriggerEnter(Collider other)

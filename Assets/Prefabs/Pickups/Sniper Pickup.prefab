@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 84fcb4c49d227dc44b3b149384f8e56f, type: 2}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16853869
+      value: 3.1811767
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4319687
+      value: 5.773759
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,9 +52,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1823774690988713151, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5129415907675404493, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_Name
       value: Sniper Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129415907675404493, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -78,9 +86,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751290603472471020}
     m_Modifications:
+    - target: {fileID: 1103771370476624, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1310268070637946, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Sniper_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310268070637946, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337505178185492, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748259623513462, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957524882606068, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964232543590022, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4841849786948284, guid: f78357a78db3dfd4e8c638310767dd56, type: 3}
       propertyPath: m_LocalPosition.x

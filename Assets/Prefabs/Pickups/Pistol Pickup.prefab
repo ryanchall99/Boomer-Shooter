@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 612cd4abfb52a4c40baf646f299f78fb, type: 2}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.27313697
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.84
+      value: 5.320862
       objectReference: {fileID: 0}
     - target: {fileID: 1182098806660297857, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,9 +52,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1823774690988713151, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5129415907675404493, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
       propertyPath: m_Name
       value: Pistol Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129415907675404493, guid: 4eca315e675f4444eb82a7544a1f6298, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -78,9 +86,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2118396991090880199}
     m_Modifications:
+    - target: {fileID: 1264200380836966, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459174726613952, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1700825503440746, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Pistol_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700825503440746, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4276584366140610, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
       propertyPath: m_LocalScale.x
