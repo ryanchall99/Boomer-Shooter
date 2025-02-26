@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b97a22fc7aa8c3438cf2607cc825559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionVFX: {fileID: 2362370774163063376, guid: 70ef13b89fb4fff4288fb41e665f0477, type: 3}
   MaxHealth: 3
 --- !u!136 &4687795130927478101
 CapsuleCollider:

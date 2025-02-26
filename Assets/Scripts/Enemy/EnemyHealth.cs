@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    [SerializeField] GameObject ExplosionVFX;
     [SerializeField] int MaxHealth;
 
     int _currentHealth;
@@ -18,7 +19,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
+            Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
-    }    
+    }   
 }
