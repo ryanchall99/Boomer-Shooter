@@ -19,8 +19,14 @@ public class EnemyHealth : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
-            Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            SelfDestruct();
         }
+    }
+
+    public void SelfDestruct()
+    {
+        // Instantiate VFX Prefab & Destroy GameObject
+        Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

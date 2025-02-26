@@ -5,10 +5,14 @@ public class Enemy : MonoBehaviour
 {
     private PlayerController _player;
     private NavMeshAgent _navMeshAgent;
+    private EnemyHealth _enemyHealth;
+
+    const string PLAYER_STRING = "Player";
 
     private void Awake() 
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();    
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Start()
@@ -25,5 +29,14 @@ public class Enemy : MonoBehaviour
         }
         
         _navMeshAgent.SetDestination(_player.transform.position);    
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Checking other tag.
+        if (other.CompareTag(PLAYER_STRING))
+        {
+            _enemyHealth.SelfDestruct();
+        }
     }
 }
