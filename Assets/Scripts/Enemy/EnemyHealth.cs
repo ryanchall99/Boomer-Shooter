@@ -22,5 +22,5 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
-    }   
+    }
 }
