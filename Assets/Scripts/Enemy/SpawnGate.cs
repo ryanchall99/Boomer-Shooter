@@ -16,6 +16,14 @@ public class SpawnGate : MonoBehaviour
         StartCoroutine(SpawnEnemy());    
     }
 
+    void Update() 
+    {
+        if (!player)
+        {
+            StopCoroutine(SpawnEnemy());
+        }    
+    }
+
     IEnumerator SpawnEnemy()
     {
         // While player is still alive...
