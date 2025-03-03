@@ -18,10 +18,8 @@ public class Weapon : MonoBehaviour
         {
             Instantiate(weaponSO.HitVFXPrefab, hit.point, Quaternion.identity);
 
-            if (hit.collider.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
-            {
-                enemyHealth.TakeDamage(weaponSO.Damage);
-            }
+            EnemyHealth enemyHealth = hit.collider.GetComponentInParent<EnemyHealth>();
+            enemyHealth?.TakeDamage(weaponSO.Damage);
         }
     }
 }
