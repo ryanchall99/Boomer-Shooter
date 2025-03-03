@@ -1472,6 +1472,14 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 1787557751}
+    - target: {fileID: 6793398206011965499, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: WalkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793398206011965499, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
+      propertyPath: SprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8868256179693540698, guid: fa83ff160ee23744f8f1c2821d13ccb4, type: 3}
       propertyPath: m_Name
       value: Player

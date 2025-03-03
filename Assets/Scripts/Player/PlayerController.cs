@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Multipliers")]
-    [SerializeField] float MoveSpeed = 1f;
+    [SerializeField] float WalkSpeed = 1f;
+    [SerializeField] float SprintSpeed = 5f;
     [SerializeField] float LookSensitivity = 1f;
 
     [Header("Camera")]
@@ -20,10 +21,12 @@ public class PlayerController : MonoBehaviour
     InputActions_Player _inputActions;
     InputAction _moveAction;
     InputAction _lookAction;
+    InputAction _sprintAction;
 
     /* --- PLAYER MOVEMENT --- */
     CharacterController _characterController;  
     private float xRotation = 0f;
+    private float _movementSpeed;
 
     private void OnEnable() 
     {
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
         _moveAction = _inputActions.Player.Move;    
         _lookAction = _inputActions.Player.Look;
+        _sprintAction = _inputActions.Player.Sprint;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -79,7 +83,9 @@ public class PlayerController : MonoBehaviour
      
         Vector3 moveDirection = transform.right * move.x + transform.forward * move.y;
 
-        _characterController.Move(moveDirection * MoveSpeed * Time.deltaTime);
+        _movementSpeed = _sprintAction.IsPressed() ? SprintSpeed : WalkSpeed;
+
+        _characterController.Move(moveDirection * _movementSpeed * Time.deltaTime);
     }
 
     private void HandleLook()
