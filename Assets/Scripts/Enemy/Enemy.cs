@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         // Checking other tag.
         if (other.CompareTag(PLAYER_STRING))
         {
-            _enemyHealth.Death();
+            _enemyHealth.SelfDestruct();
         }
     }
 }
